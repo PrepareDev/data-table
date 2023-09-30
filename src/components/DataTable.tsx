@@ -1,5 +1,4 @@
 import React from "react"
-import { Table } from "../types"
 
 export type DataTableProps = {
     table: Record<string, string | number>[]

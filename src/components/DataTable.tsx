@@ -16,7 +16,7 @@ export const DataTable: React.FC<DataTableProps> = ({ table, headers }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {table.map(row => <tr>{Object.values(row).map((v, i) => <td key={i}>{v}</td>)}</tr>)}
+                    {table.map((row, i) => <tr key={i}>{Object.values(row).map((v, i) => <td key={i}>{v}</td>)}</tr>)}
                 </tbody>
             </table>
         </div>

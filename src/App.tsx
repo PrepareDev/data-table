@@ -1,8 +1,32 @@
+import { DataTable } from "./components/DataTable"
+
+
 function App() {
+  const table = [{
+    "id": 0,
+    '5-6': '7-8',
+    'hehehegr': 'done',
+  },
+  {
+    "id": 1,
+    '5-6': '7-8',
+    'hehehegr': 'done',
+  },
+  {
+    "id": 2,
+    '5-6': '7-8',
+    'hehehegr': 'done',
+  },
+  {
+    "id": 3,
+    '5-6': '7-8',
+    'hehehegr': 'done',
+  },]
+
+  const headers = Object.keys(table[0])
   return (
-    <div className="w-screen h-screen flex justify-center items-center flex-col gap-6">
-      <h1 className="font-bold text-5xl"> Data Table Project </h1>
-      <h2 className="text-4xl"> Implement me </h2>
+    <div>
+      <DataTable table={table} headers={headers} />
     </div>
   )
 }

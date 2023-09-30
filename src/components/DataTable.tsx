@@ -2,7 +2,7 @@ import React from "react"
 import { Table } from "../types"
 
 export type DataTableProps = {
-    table: Table[]
+    table: Record<string, string | number>[]
 
 }
 
@@ -10,35 +10,24 @@ export type DataTableProps = {
 
 export const DataTable: React.FC<DataTableProps> = ({ table }) => {
 
+    const tableHeaders = Object.keys(table[0])
+    const rows = Object.values(table)
+
+    console.log(rows)
     return (
         <div className="">
             <h1 className="font-bold text-5xl"> Data Table Project </h1>
             <table >
                 <thead>
                     <tr>
-                        <th >firstname</th>
-                        <th >lastname</th>
-                        <th >email</th>
-                        <th >phone</th>
-                        <th >address</th>
-                        <th >description</th>
+                        {tableHeaders.map(k => <th>{k}</th>)}
                     </tr>
                 </thead>
                 <tbody>
-                    {table.map(t =>
-                        <tr key={t.id}><td>{t.firstName}</td>
-                            <td>{t.lastName}</td>
-                            <td>{t.email}</td>
-                            <td>{t.phone}</td>
-                            <td>{t.address.city}
-                                {t.address.state}
-                                {t.address.streetAddress}
-                                {t.address.zip}</td>
-                            <td>{t.description}</td>
-                        </tr>
-                    )}
+                    {rows.map(row => <tr>{Object.values(row).map(v => <td>{v}</td>)}</tr>)}
                 </tbody>
             </table>
+            <h2 className="text-4xl"> Implement me </h2>
         </div>
     )
 }
